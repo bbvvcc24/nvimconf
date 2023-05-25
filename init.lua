@@ -5,9 +5,22 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
 vim.opt.swapfile = false
+vim.opt.updatetime = 100
 
 -- Keymaps
 vim.g.mapleader = " "
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map("n", "<leader>[", ":GitGutterNextHunk<CR>")
+map("n", "<leader>]", ":GitGutterPrevHunk<CR>")
+map("n", "<leader>gd", ":GitGutterDiffOrig<CR>")
+map("n", "<F5>", ":UndotreeToggle<CR>")
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -38,6 +51,7 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use 'airblade/vim-gitgutter'
+  use 'mbbill/undotree'
 
   -- Color Schemes etc
   use {'dracula/vim', as = 'dracula'}
