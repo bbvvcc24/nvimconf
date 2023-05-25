@@ -24,6 +24,8 @@ map("n", "<F5>", ":UndotreeToggle<CR>")
 map('n', 'go', ':!go run %<cr>')
 map('n', '<leader>ev', ':vnew<CR>')
 map('n', '<leader>w', '<C-w>w<CR>')
+map('n', '<leader>,', '<C-w>5><CR>')
+map('n', '<leader>.', '<C-w>5<<CR>')
 
 vim.cmd [[packadd packer.nvim]]
 vim.cmd [[colorscheme dracula]]
