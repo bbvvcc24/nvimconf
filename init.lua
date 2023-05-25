@@ -21,8 +21,10 @@ map("n", "<leader>[", ":GitGutterNextHunk<CR>")
 map("n", "<leader>]", ":GitGutterPrevHunk<CR>")
 map("n", "<leader>gd", ":GitGutterDiffOrig<CR>")
 map("n", "<F5>", ":UndotreeToggle<CR>")
+map('n', 'go', ':!go run %<cr>')
+map('n', '<leader>ev', ':vnew<CR>')
+map('n', '<leader>w', '<C-w>w<CR>')
 
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 vim.cmd [[colorscheme dracula]]
 
